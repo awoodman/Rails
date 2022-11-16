@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :todo_items
+  # resources :todo_items
   root 'todo_lists#index'
-  resources :todo_lists
+  resources :todo_lists do
+    resources :todo_items, only: [:create, :destroy]
+  end
 
   resources :accounts
 
