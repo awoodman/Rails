@@ -1,6 +1,6 @@
 class TodoItemsController < ApplicationController
   # before_action :set_todo_item, only: %i[ show edit update destroy ]
-  before_action :set_todo_list, only: %i[ new create destroy ]
+  before_action :set_todo_list, :set_todo_item, only: %i[ show new create destroy ]
 
   # GET /todo_items or /todo_items.json
   # def index
@@ -24,6 +24,7 @@ class TodoItemsController < ApplicationController
   def create
     # @todo_item = TodoItem.new(todo_item_params)
     @todo_item = @todo_list.todo_items.new(todo_item_params)
+    @todo_item.done = false
 
     # respond_to do |format|
     #   if @todo_item.save

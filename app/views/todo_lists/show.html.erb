@@ -6,7 +6,11 @@
   <dl>
     <dt><b>Todo Items:</b></dt>
     <% @todo_list.todo_items.each do |item|%>
-      <dd><%= item.task_title %></dd>
+      <% if item.done? %>
+        <dd><%= link_to item.task_title, todo_list_todo_item_path(item), {:style=>'color:green;'} %></dd>
+      <% else %>
+        <dd><%= link_to item.task_title, todo_list_todo_item_path(item), {:style=>'color:red;'} %></dd>
+      <% end %>
     <% end %>
   </dl>
 </div>
