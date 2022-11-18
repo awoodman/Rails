@@ -3,18 +3,25 @@
 <%= render @todo_list %>
 
 <div id="todo_items">
-  <h4>Todo Items:</h4>
-  <ul>
+  <dl>
+    <dt><b>Todo Items:</b></dt>
     <% @todo_list.todo_items.each do |item|%>
-      <li><%= item.task_title %></li>
+      <dd><%= item.task_title %></dd>
     <% end %>
-  </ul>
+  </dl>
 </div>
 
 <div>
-  <%= button_to "Add Todo Item", new_todo_list_todo_item_path(@todo_list), method: :get %>
-  <%= link_to "Edit this todo list", edit_todo_list_path(@todo_list) %> |
-  <%= link_to "Back to todo lists", todo_lists_path %>
+  <table>
+    <tr>
+      <td><%= button_to "Add Todo Item", new_todo_list_todo_item_path(@todo_list), method: :get %></td>
+      <td><%= button_to "Destroy this todo list", @todo_list, method: :delete %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "Edit todo list", edit_todo_list_path(@todo_list) %></td>
+      <td><%= link_to "Show all todo lists", todo_lists_path %></td>
+    </tr>
+  </table>
+  
 
-  <%= button_to "Destroy this todo list", @todo_list, method: :delete %>
 </div>
