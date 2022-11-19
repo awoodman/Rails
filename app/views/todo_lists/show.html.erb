@@ -7,9 +7,9 @@
     <dt><b>Todo Items:</b></dt>
     <% @todo_list.todo_items.each do |item|%>
       <% if item.done? %>
-        <dd><%= link_to item.task_title, todo_list_todo_item_path(item), {:style=>'color:green;'} %></dd>
+        <dd><%= link_to item.task_title, todo_list_todo_item_path(@todo_list,item), {:style=>'color:green;'} %></dd>
       <% else %>
-        <dd><%= link_to item.task_title, todo_list_todo_item_path(item), {:style=>'color:red;'} %></dd>
+        <dd><%= link_to item.task_title, todo_list_todo_item_path(@todo_list,item), {:style=>'color:red;'} %></dd>
       <% end %>
     <% end %>
   </dl>

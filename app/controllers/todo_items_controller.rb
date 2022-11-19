@@ -72,6 +72,7 @@ class TodoItemsController < ApplicationController
     def set_todo_item
       # @todo_item = TodoItem.find(params[:id])
       @todo_item = TodoItem.find(params[:id])
+      # @todo_item = @todo_list.todo_item
     end
 
     # Only allow a list of trusted parameters through.
