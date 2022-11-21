@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   # resources :todo_items
   root 'todo_lists#index'
   resources :todo_lists do
-    resources :todo_items, only: [:edit, :new, :create, :destroy, :show]
+    resources :todo_items, only: [:edit, :new, :create, :update, :destroy, :show]
   end
 
   resources :accounts
+  resources :todo_items
 
   # get 'sessions/new'
   # get 'sessions/create'

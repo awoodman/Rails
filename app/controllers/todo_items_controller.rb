@@ -1,7 +1,7 @@
 class TodoItemsController < ApplicationController
   # before_action :set_todo_item, only: %i[ show edit update destroy ]
-  before_action :set_todo_list, only: %i[ show edit new create destroy ]
-  before_action :set_todo_item, only: %i[ show edit destroy ]
+  before_action :set_todo_list, only: %i[ show edit update new create destroy ]
+  before_action :set_todo_item, only: %i[ show edit update destroy ]
 
   # GET /todo_items or /todo_items.json
   # def index
@@ -72,8 +72,7 @@ class TodoItemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_todo_item
       # @todo_item = TodoItem.find(params[:id])
-      @todo_item = TodoItem.find(params[:id])
-      # @todo_item = @todo_list.todo_item
+      @todo_item = @todo_list.todo_items.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
