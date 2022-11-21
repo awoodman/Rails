@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :accounts
-  resources :todo_items
+  # resources :todo_items
 
   # get 'sessions/new'
   # get 'sessions/create'
