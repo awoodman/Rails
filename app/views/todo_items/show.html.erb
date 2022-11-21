@@ -11,17 +11,17 @@
     <td><%= @todo_item.task_title %></td>
     <td><%= @todo_item.due_date %></td>
     <% if @todo_item.done? %>
-      <td style="color: green;"><%= @todo_item.done? %></td>
+      <td class="complete"><%= @todo_item.done? %></td>
     <% else %>
-      <td style="color: red;"><%= @todo_item.done? %></td>
+      <td class="incomplete"><%= @todo_item.done? %></td>
     <% end %>
     <td><%= @todo_item.description %></td>
   </tr>
 </table>
 
 <div>
-  <%= link_to "Edit this todo item", edit_todo_list_todo_item_path(@todo_item) %> |
+  <%= link_to "Edit this todo item", edit_todo_list_todo_item_path(@todo_list, @todo_item) %> |
   <%= link_to "Back to todo items", todo_list_path(@todo_list) %>
 
-  <%= button_to "Destroy this todo item", todo_list_todo_item_path(@todo_item), method: :delete %>
+  <%= button_to "Destroy this todo item", todo_list_todo_item_path(@todo_list, @todo_item), method: :delete %>
 </div>
