@@ -3,17 +3,16 @@ class TodoListsController < ApplicationController
 
   # GET /todo_lists or /todo_lists.json
   def index
-    # @todo_lists = TodoList.all
-    @todo_lists = current_user.todo_lists.all
+    @todo_lists = current_user.todo_lists.all.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /todo_lists/1 or /todo_lists/1.json
   def show
+    @todo_items = @todo_list.todo_items.all.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /todo_lists/new
   def new
-    # @todo_list = TodoList.new
     @todo_list = current_user.todo_lists.new
   end
 
@@ -23,7 +22,6 @@ class TodoListsController < ApplicationController
 
   # POST /todo_lists or /todo_lists.json
   def create
-    # @todo_list = TodoList.new(todo_list_params)
     @todo_list = current_user.todo_lists.new(todo_list_params)
 
     respond_to do |format|
@@ -63,7 +61,6 @@ class TodoListsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo_list
-      # @todo_list = TodoList.find(params[:id])
       @todo_list = current_user.todo_lists.find(params[:id])
     end
 

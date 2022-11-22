@@ -5,7 +5,7 @@
 <div id="todo_items">
   <dl>
     <dt><b>Todo Items:</b></dt>
-    <% @todo_list.todo_items.each do |item|%>
+    <% @todo_items.each do |item|%>
       <% if item.done? %>
         <dd><%= link_to item.task_title, todo_list_todo_item_path(@todo_list,item), {:style=>'color:green;'} %></dd>
       <% else %>
@@ -14,6 +14,8 @@
     <% end %>
   </dl>
 </div>
+
+<%= will_paginate @todo_items %>
 
 <div>
   <table>
@@ -26,6 +28,4 @@
       <td><%= link_to "Show all todo lists", todo_lists_path %></td>
     </tr>
   </table>
-  
-
 </div>
