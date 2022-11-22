@@ -24,11 +24,12 @@ matt.create_account gender: "Male", age: 31, first_name: "Matt", last_name: "Mat
 tim = User.find_by login: "Tim"
 tim.create_account gender: "Male", age: 38, first_name: "Tim", last_name: "Timothyson"
 
-# Many TodoLists
-100.times do |ii|
-    matt.todo_lists.create list_name: "List_#{ii}", list_due_date: "2022-11-10"
-    tdl = TodoList.find_by list_name: "List_#{ii}"
-    50.times do |jj|
-        tdl.todo_items.create due_date: "2022-11-10", task_title: "idx: #{jj}", description: "idx: #{jj}", done: false
-    end
-end
+# # Many TodoLists
+# 100.times do |ii|
+#     matt.todo_lists.create list_name: "List_#{ii}", list_due_date: "2022-11-10"
+#     tdl = TodoList.find_by list_name: "List_#{ii}"
+#     # Many TodoItems in each list
+#     50.times do |jj|
+#         tdl.todo_items.create due_date: "2022-11-10", task_title: "idx: #{jj}", description: "idx: #{jj}", done: false
+#     end
+# end
