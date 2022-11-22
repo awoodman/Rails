@@ -3,26 +3,40 @@
 <br>
 
 <%= form_with(model: @todo_item, local: true, url: [@todo_list, @todo_item]) do |form| %>
-  <div class="field">
-    <%= form.label :task_title %>
-    <%= form.text_field :task_title %>
-  </div>
+  <table class="clear_table">
+    <div class="field">
+      <tr>
+        <td class="clear_td"><%= form.label :task_title %></td>
+        <td class="clear_td"><%= form.text_field :task_title %></td>
+      </tr>
+    </div>
 
-  <div class="field">
-    <%= form.label :due_date %>
-    <%= form.date_field :due_date %>
-  </div>
+    <div class="field">
+      <tr>
+        <td class="clear_td"><%= form.label :due_date %></td>
+        <td class="clear_td"><%= form.date_field :due_date %></td>
+      </tr>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, size: "40x12" %>
-  </div>
+    <div class="field">
+      <tr>
+        <td class="clear_td"><%= form.label :description %></td>
+        <td class="clear_td"><%= form.text_area :description, size: "40x12" %></td>
+      </tr>
+    </div>
 
-  <div class="actions">
-    <%= form.submit "Add To List" %>
-  </div>
+    <div class="actions">
+      <tr>
+        <td class="clear_td"></td>
+        <td class="clear_td"><%= form.submit "Add To List" %></td>
+      </tr>
+    </div>
+
+    <div>
+      <tr>
+        <td class="clear_td"></td>
+        <td class="clear_td"><%= link_to "Cancel", todo_list_path(@todo_list) %></td>
+      </tr>
+    </div>
+  </table>
 <% end %>
-
-<div>
-  <%= link_to "Cancel", todo_list_path(@todo_list) %>
-</div>

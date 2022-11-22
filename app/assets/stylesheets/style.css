@@ -3,6 +3,10 @@ table, th, td {
     border-collapse: collapse;
 }
 
+.clear_table, .clear_th, .clear_td {
+    border: none;
+}
+
 .complete {
     color: green;
     border-width:3px; 
